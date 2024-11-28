@@ -6,6 +6,8 @@
 
 ![image](./introduction/demo_image.png)
 
+
+
 ## 使用說明
 
 1. Powershell 執行檔位置: 於INFO按鈕下，填入PS執行檔絕對路徑，此欄位自動儲存於LocalStorage中
