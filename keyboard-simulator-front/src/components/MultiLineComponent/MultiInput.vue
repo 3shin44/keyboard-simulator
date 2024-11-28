@@ -1,12 +1,12 @@
 <template>
   <div class="mb-3">
-    <button class="btn btn-outline-primary" @click="addNewItem">ADD</button>
-    <button class="btn btn-outline-primary ms-1" @click="saveItem">SAVE</button>
-    <button class="btn btn-outline-primary ms-1" @click="restoreItem">
-      RESTORE
+    <button class="btn btn-outline-primary btn-sm" @click="addNewItem">ADD<br>new item</button>
+    <button class="btn btn-outline-primary btn-sm ms-1" @click="saveItem">SAVE<br>to localStorage</button>
+    <button class="btn btn-outline-primary btn-sm ms-1" @click="restoreItem">
+      RESTORE<br>from localStorage
     </button>
-    <button class="btn btn-outline-primary ms-1" @click="clearItem">
-      CLAER
+    <button class="btn btn-outline-primary btn-sm ms-1" @click="clearItem">
+      CLAER<br>localStorage
     </button>
   </div>
 
@@ -55,20 +55,32 @@ export default {
     },
     // 嘗試由LS還原
     restoreItem() {
+      let recordNotExisted = true
       let getString = window.localStorage.getItem('multiLineItem')
-      this.inputList = JSON.parse(getString)
+      if(getString){
+        this.inputList = JSON.parse(getString)
+        recordNotExisted = false
+      }
+      return recordNotExisted
     },
-    // 清除LS紀錄
+    // 清除LS紀錄 & 初始化設定
     clearItem() {
       window.localStorage.removeItem('multiLineItem')
     },
     // 移除點選項目
     removeItem(id) {
       this.inputList = this.inputList.filter((element) => element.id !== id)
+    },
+    // 初始化啟動流程 (有紀錄先使用, 無紀錄初始化)
+    initProcedure(){
+      let recordNotExisted = this.restoreItem() 
+      if(recordNotExisted){
+        this.addNewItem()
+      }
     }
   },
   created() {
-    this.addNewItem()
+    this.initProcedure()
   }
 }
 </script>

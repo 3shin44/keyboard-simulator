@@ -1,10 +1,30 @@
-# Keyboard Simulator
+# Keyboard Simulator 2.0.0
 
-## 需求說明
+## 功能說明
+
+### 一般模式
 
 基於PowerShell鍵盤輸入工具，用於特定環境無法複製貼上，提供操作介面供模擬輸入
 
 ![image](./introduction/demo_image.png)
+
+### 分行模式
+
+適用於連續輸入表單，每個欄位間隔使用{TAB}進行換行
+
+ADD: 新增一組輸入資料
+
+SAVE: 儲存將當前設定狀態
+
+RESTORE: 從既有紀錄還原 (啟動時預設使用既存資料)
+
+CLAER: 清除紀錄
+
+![image](./introduction/demo_multiline.png)
+
+### 設定
+
+PS執行檔路徑在此分頁設定
 
 
 
