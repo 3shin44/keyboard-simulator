@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 const store = createStore({
   state() {
     return {
-      vxMainVersion: "version unavailable",
+      vxMainVersion: 'version unavailable',
       vxIsExecuting: false
     }
   },

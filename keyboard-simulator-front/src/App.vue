@@ -68,9 +68,9 @@ export default {
         this.activeName = this.tabList[0].name
       }
     },
-    async getVersion(){
+    async getVersion() {
       const { data } = await axios.get('http://localhost:9527/version')
-      if(data && data.version){
+      if (data && data.version) {
         this.$store.commit('updateVersion', data.version)
       }
     }
@@ -96,7 +96,7 @@ export default {
   position: absolute;
   top: 50px;
 }
-.version-tag{
+.version-tag {
   position: absolute;
   top: 5px;
   right: 5px;

@@ -38,7 +38,9 @@ export default {
   methods: {
     // 檢查檔案路徑是否設定過
     checkFilePath() {
-      util.filePath = window.localStorage.getItem('psFilePath') || ''
+      let getPath = window.localStorage.getItem('psFilePath') || ''
+      util.filePath = getPath
+      this.psParamsPath = getPath
     }
   },
   watch: {
@@ -46,7 +48,6 @@ export default {
       handler(newValue) {
         window.localStorage.setItem('psFilePath', newValue)
         util.filePath = newValue
-        console.log(util.filePath)
       },
       deep: true
     }

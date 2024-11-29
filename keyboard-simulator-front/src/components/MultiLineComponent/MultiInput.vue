@@ -1,12 +1,16 @@
 <template>
   <div class="mb-3">
-    <button class="btn btn-outline-primary btn-sm" @click="addNewItem">ADD<br>new item</button>
-    <button class="btn btn-outline-primary btn-sm ms-1" @click="saveItem">SAVE<br>to localStorage</button>
+    <button class="btn btn-outline-primary btn-sm" @click="addNewItem">
+      ADD<br />new item
+    </button>
+    <button class="btn btn-outline-primary btn-sm ms-1" @click="saveItem">
+      SAVE<br />to localStorage
+    </button>
     <button class="btn btn-outline-primary btn-sm ms-1" @click="restoreItem">
-      RESTORE<br>from localStorage
+      RESTORE<br />from localStorage
     </button>
     <button class="btn btn-outline-primary btn-sm ms-1" @click="clearItem">
-      CLAER<br>localStorage
+      CLAER<br />localStorage
     </button>
   </div>
 
@@ -57,7 +61,7 @@ export default {
     restoreItem() {
       let recordNotExisted = true
       let getString = window.localStorage.getItem('multiLineItem')
-      if(getString){
+      if (getString) {
         this.inputList = JSON.parse(getString)
         recordNotExisted = false
       }
@@ -72,9 +76,9 @@ export default {
       this.inputList = this.inputList.filter((element) => element.id !== id)
     },
     // 初始化啟動流程 (有紀錄先使用, 無紀錄初始化)
-    initProcedure(){
-      let recordNotExisted = this.restoreItem() 
-      if(recordNotExisted){
+    initProcedure() {
+      let recordNotExisted = this.restoreItem()
+      if (recordNotExisted) {
         this.addNewItem()
       }
     }
